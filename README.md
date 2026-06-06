@@ -4,7 +4,7 @@
 `Downloads`: определяет тип каждого файла по расширению и перемещает его в
 подходящую категорию.
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-yellow)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
 
