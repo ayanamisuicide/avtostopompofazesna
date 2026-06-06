@@ -1,1 +1,31 @@
+from pathlib import Path
+
+downloads_folder = Path.home() / "Downloads"
+
+categories = {
+    "Images": {".jpg", ".jpeg", ".png", ".gif"},
+    "Documents": {".pdf", ".doc", ".docx", ".txt"},
+    "Archives": {".zip", ".rar", ".7z"},
+}
+
 print("Организатор файлов запущен.")
+print(f"Папка для сортировки: {downloads_folder}")
+
+if downloads_folder.exists():
+    print("Папка существует.")
+    for item in downloads_folder.iterdir():
+        if item.is_file():
+            extension = item.suffix.lower()
+            category_name = "Others"
+
+            for category, extensions in categories.items():
+                if extension in extensions:
+                    category_name = category
+                    break
+
+            print(f"{item.name} относится к категории {category_name}")
+            destination_folder = downloads_folder / category_name
+            destination_folder.mkdir(exist_ok=True)
+            print(f"Будущая папка: {destination_folder}")
+else:
+    print("Папка не найдена.")
