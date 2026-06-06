@@ -11,6 +11,12 @@ categories = {
 print("Организатор файлов запущен.")
 print(f"Папка для сортировки: {downloads_folder}")
 
+answer = input("Начать сортировку? (да/нет): ").strip().lower()
+
+if answer not in {"да", "д", "yes", "y"}:
+    print("Сортировка отменена.")
+    raise SystemExit
+
 if downloads_folder.exists():
     print("Папка существует.")
     for item in downloads_folder.iterdir():
