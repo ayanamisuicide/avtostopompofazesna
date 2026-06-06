@@ -11,6 +11,15 @@ categories = {
 print("Организатор файлов запущен.")
 print(f"Папка для сортировки: {downloads_folder}")
 
+answer = input("Начать сортировку? (да/нет): ").strip().lower()
+
+if answer not in {"да", "д", "yes", "y"}:
+    print("Сортировка отменена.")
+    raise SystemExit
+
+moved_count = 0
+skipped_count = 0
+
 if downloads_folder.exists():
     print("Папка существует.")
     for item in downloads_folder.iterdir():
@@ -27,5 +36,13 @@ if downloads_folder.exists():
             destination_folder = downloads_folder / category_name
             destination_folder.mkdir(exist_ok=True)
             print(f"Будущая папка: {destination_folder}")
+            destination_file = destination_folder / item.name
+            print(f"Будущий путь файла: {destination_file}")
+
+            if destination_file.exists():
+                print("Файл с таким именем уже существует. Скипаем.")
+            else:
+                item.rename(destination_file)
+                print(f"Перемещено: {item.name} -> {category_name}")
 else:
     print("Папка не найдена.")
