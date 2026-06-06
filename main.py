@@ -6,6 +6,9 @@ categories = {
     "Images": {".jpg", ".jpeg", ".png", ".gif"},
     "Documents": {".pdf", ".doc", ".docx", ".txt"},
     "Archives": {".zip", ".rar", ".7z"},
+    "Videos": {".mp4", ".mkv", ".avi", ".mov"},
+    "Music": {".mp3", ".wav", ".flac", ".ogg"},
+    "Installers": {".exe", ".msi"},
 }
 
 print("Организатор файлов запущен.")
@@ -41,8 +44,18 @@ if downloads_folder.exists():
 
             if destination_file.exists():
                 print("Файл с таким именем уже существует. Скипаем.")
+                skipped_count += 1
             else:
-                item.rename(destination_file)
-                print(f"Перемещено: {item.name} -> {category_name}")
+                try:
+                    item.rename(destination_file)
+                    print(f"Перемещено: {item.name} -> {category_name}")
+                    moved_count += 1
+                except OSError as error:
+                    print(f"Не удалось переместить {item.name}: {error}")
+                    skipped_count += 1
 else:
     print("Папка не найдена.")
+
+print("Сортировка завершена.")
+print(f"Перемещено файлов: {moved_count}")
+print(f"Пропущено файлов: {skipped_count}")
