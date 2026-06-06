@@ -1,5 +1,7 @@
 from pathlib import Path
 
+VERSION = "1.0.0"
+
 downloads_folder = Path.home() / "Downloads"
 
 categories = {
@@ -11,7 +13,7 @@ categories = {
     "Installers": {".exe", ".msi"},
 }
 
-print("Организатор файлов запущен.")
+print(f"Организатор файлов v{VERSION} запущен.")
 print(f"Папка для сортировки: {downloads_folder}")
 
 answer = input("Начать сортировку? (да/нет): ").strip().lower()
