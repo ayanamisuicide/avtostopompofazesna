@@ -5,6 +5,15 @@
 Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/),
 а версии следуют принципам [Semantic Versioning](https://semver.org/lang/ru/).
 
+## [Unreleased]
+
+## [1.1.0] - 2026-06-07
+
+### Изменено
+
+- определение категории файла вынесено в отдельную типизированную функцию;
+- основные части программы и функции снабжены комментариями об их назначении.
+
 ## [1.0.0] - 2026-06-07
 
 ### Добавлено
@@ -20,5 +29,7 @@
 - итоговый отчёт после завершения сортировки;
 - документация проекта и файл версии.
 
+[Unreleased]: https://github.com/ayanamisuicide/avtostopompofazesna/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/ayanamisuicide/avtostopompofazesna/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/ayanamisuicide/avtostopompofazesna/releases/tag/v1.0.0
 
